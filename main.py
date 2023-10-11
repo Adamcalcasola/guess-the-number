@@ -17,12 +17,15 @@ number = random.randint(1, 100)
 
 while attempts > 0:
     print(f"You have {attempts} attempts remaining to guess the number.")
-    guess = int(input("Make a guess:"))
+    guess = int(input("Make a guess: "))
+    attempts -= 1
     if guess == number:
         print("You Win!")
+        break
     elif guess > number:
         print("Too high.\nGuess again.")
     elif guess < number:
         print("Too low.\nGuess again.")
 
-print("You've run out of guesses, you lose.")
+    if attempts == 0:
+        print("You've run out of guesses, you lose.")
